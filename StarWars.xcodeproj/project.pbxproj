@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92136EF84477D15A546BEAF /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213A5E0E021AAEE0B3166F /* RootRouter.swift */; };
+		A9213A15C7C30CF2E54D326C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9213052773AE215AA9869DE /* Assets.xcassets */; };
+		A9213D7C0387654BB7009689 /* CharacteresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921373BDEFC743F50200D5A /* CharacteresViewController.swift */; };
 		B25BFD9C1CE168090048724A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25BFD9B1CE168090048724A /* AppDelegate.swift */; };
-		B25BFD9E1CE168090048724A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25BFD9D1CE168090048724A /* ViewController.swift */; };
-		B25BFDA11CE168090048724A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25BFD9F1CE168090048724A /* Main.storyboard */; };
-		B25BFDA31CE168090048724A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B25BFDA21CE168090048724A /* Assets.xcassets */; };
 		B25BFDA61CE168090048724A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25BFDA41CE168090048724A /* LaunchScreen.storyboard */; };
 		B25BFDB41CE168C70048724A /* StarWarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25BFDB31CE168C70048724A /* StarWarsTests.swift */; };
 /* End PBXBuildFile section */
@@ -26,11 +26,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9213052773AE215AA9869DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A921373BDEFC743F50200D5A /* CharacteresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteresViewController.swift; sourceTree = "<group>"; };
+		A9213A5E0E021AAEE0B3166F /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		B25BFD981CE168090048724A /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25BFD9B1CE168090048724A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B25BFD9D1CE168090048724A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B25BFDA01CE168090048724A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B25BFDA21CE168090048724A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B25BFDA51CE168090048724A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B25BFDA71CE168090048724A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B25BFDB11CE168C60048724A /* StarWarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +56,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A92136CDC52FEB8C422CD38F /* Characteres */ = {
+			isa = PBXGroup;
+			children = (
+				A921373BDEFC743F50200D5A /* CharacteresViewController.swift */,
+			);
+			path = Characteres;
+			sourceTree = "<group>";
+		};
+		A9213731D43C487B82DFECF5 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				A9213A5E0E021AAEE0B3166F /* RootRouter.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		B25BFD8F1CE168090048724A = {
 			isa = PBXGroup;
 			children = (
@@ -77,10 +93,9 @@
 		B25BFD9A1CE168090048724A /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
+				B2FBCE651CE76D9500E438FE /* Assets */,
+				B2FBCE641CE76D5500E438FE /* Modules */,
 				B25BFD9B1CE168090048724A /* AppDelegate.swift */,
-				B25BFD9D1CE168090048724A /* ViewController.swift */,
-				B25BFD9F1CE168090048724A /* Main.storyboard */,
-				B25BFDA21CE168090048724A /* Assets.xcassets */,
 				B25BFDA41CE168090048724A /* LaunchScreen.storyboard */,
 				B25BFDA71CE168090048724A /* Info.plist */,
 			);
@@ -94,6 +109,23 @@
 				B25BFDB51CE168C70048724A /* Info.plist */,
 			);
 			path = StarWarsTests;
+			sourceTree = "<group>";
+		};
+		B2FBCE641CE76D5500E438FE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A92136CDC52FEB8C422CD38F /* Characteres */,
+				A9213731D43C487B82DFECF5 /* Root */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B2FBCE651CE76D9500E438FE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A9213052773AE215AA9869DE /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B25BFDA61CE168090048724A /* LaunchScreen.storyboard in Resources */,
-				B25BFDA31CE168090048724A /* Assets.xcassets in Resources */,
-				B25BFDA11CE168090048724A /* Main.storyboard in Resources */,
+				A9213A15C7C30CF2E54D326C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B25BFD9E1CE168090048724A /* ViewController.swift in Sources */,
 				B25BFD9C1CE168090048724A /* AppDelegate.swift in Sources */,
+				A9213D7C0387654BB7009689 /* CharacteresViewController.swift in Sources */,
+				A92136EF84477D15A546BEAF /* RootRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +253,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B25BFD9F1CE168090048724A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B25BFDA01CE168090048724A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B25BFDA41CE168090048724A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -390,6 +414,7 @@
 				B25BFDAC1CE168090048724A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B25BFDB81CE168C70048724A /* Build configuration list for PBXNativeTarget "StarWarsTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +423,7 @@
 				B25BFDBA1CE168C70048724A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

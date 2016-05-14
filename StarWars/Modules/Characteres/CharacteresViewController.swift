@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CharacteresViewController.swift
 //  StarWars
 //
 //  Created by Pedro Henrique Prates Peralta on 5/9/16.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CharacteresViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
