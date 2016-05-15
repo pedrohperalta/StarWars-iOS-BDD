@@ -8,13 +8,16 @@ import UIKit
 class RootRouter: NSObject {
 
     func showInitialViewController(inWindow window: UIWindow) {
+        let charactersPresenter = CharactersPresenter()
+        
+        let charactersViewController = CharactersViewController()
+        charactersViewController.presenter = charactersPresenter
+        
+        let rootViewController = UINavigationController()
+        rootViewController.viewControllers = [charactersViewController]
+
         window.backgroundColor = UIColor.whiteColor();
         window.makeKeyAndVisible()
-
-        let rootViewController = UINavigationController()
-        let characteresViewController = CharacteresViewController()
-        rootViewController.viewControllers = [characteresViewController]
-
         window.rootViewController = rootViewController
     }
 }
