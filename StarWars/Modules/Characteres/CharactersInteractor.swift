@@ -9,7 +9,7 @@
 import Foundation
 
 
-class CharactersInteractor: NSObject, CharactersPreseterOutput {
+class CharactersInteractor: NSObject, CharactersUseCase {
     
     // MARK: Public
     

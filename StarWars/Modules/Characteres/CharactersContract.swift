@@ -6,11 +6,11 @@
 import Foundation
 
 
-protocol CharactersViewControllerOutput {
+protocol CharactersPresentation {
     func viewDidLoad()
 }
 
 
-protocol CharactersPreseterOutput {
+protocol CharactersUseCase {
     func fetchCharacters()
 }

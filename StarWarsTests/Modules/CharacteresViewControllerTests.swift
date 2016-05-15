@@ -39,7 +39,7 @@ class CharactersViewControllerTests: XCTestCase {
 
 // MARK: Class used to isolate the component dependency
 
-class CharactersViewControllerOutputSpy: CharactersViewControllerOutput {
+class CharactersViewControllerOutputSpy: CharactersPresentation {
     
     // MARK: Method call expectations
     

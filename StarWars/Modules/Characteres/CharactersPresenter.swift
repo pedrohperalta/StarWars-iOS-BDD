@@ -9,11 +9,11 @@
 import UIKit
 
 
-class CharactersPresenter: NSObject, CharactersViewControllerOutput {
+class CharactersPresenter: NSObject, CharactersPresentation {
     
     // MARK: Attributes
     
-    var interactor: CharactersPreseterOutput!
+    var interactor: CharactersUseCase!
     
     
     // MARK: Public

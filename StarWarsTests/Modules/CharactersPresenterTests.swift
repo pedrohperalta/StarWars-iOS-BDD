@@ -37,7 +37,7 @@ class CharactersPresenterTests: XCTestCase {
 
 // MARK: Class used to isolate the component dependency
 
-class CharactersPresenterOutputSpy: NSObject, CharactersPreseterOutput {
+class CharactersPresenterOutputSpy: NSObject, CharactersUseCase {
 
     // MARK: Method call expectations
 

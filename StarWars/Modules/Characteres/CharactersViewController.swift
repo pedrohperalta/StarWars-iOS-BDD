@@ -12,7 +12,7 @@ class CharactersViewController: UIViewController {
 
     // MARK: Attributes
 
-    var presenter: CharactersViewControllerOutput!
+    var presenter: CharactersPresentation!
 
 
     // MARK: View Life Cycle
