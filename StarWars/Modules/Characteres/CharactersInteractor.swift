@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import ObjectMapper
+import Alamofire
+import AlamofireObjectMapper
 
 
 class CharactersInteractor: NSObject, CharactersUseCase {
@@ -20,5 +23,10 @@ class CharactersInteractor: NSObject, CharactersUseCase {
     // MARK: CharactersPreseterOutput
     
     func fetchCharacters() {
+        Alamofire.request(.GET, Api.peopleURL).responseObject { (response: Response<People, NSError>) in
+            if let people = response.result.value {
+                print(people)
+            }
+        }
     }
 }

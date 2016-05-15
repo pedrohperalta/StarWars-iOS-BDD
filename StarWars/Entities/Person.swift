@@ -4,11 +4,26 @@
 //
 
 import Foundation
+import ObjectMapper
 
 
-class Person {
+class Person: Mappable {
+
     var name: String?
+    var height: String?
+    var mass: String?
     var gender: String?
-    var height: Int?
-    var mass: Int?
+    var homeworld: String?
+
+
+    required init?(_ map: Map) {
+    }
+
+    func mapping(map: Map) {
+        name        <- map["name"]
+        height      <- map["height"]
+        mass        <- map["mass"]
+        gender      <- map["gender"]
+        homeworld   <- map["homeworld"]
+    }
 }
