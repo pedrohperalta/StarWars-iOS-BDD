@@ -11,9 +11,20 @@ import UIKit
 
 class CharactersPresenter: NSObject, CharactersViewControllerOutput {
     
+    // MARK: Attributes
+    
+    var interactor: CharactersPreseterOutput!
+    
+    
+    // MARK: Public
+    
     override init() {
     }
     
+    
+    // MARK: CharactersViewControllerOutput
+    
     func viewDidLoad() {
+        self.interactor.fetchCharacters()
     }
 }

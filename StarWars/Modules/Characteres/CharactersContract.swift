@@ -9,3 +9,8 @@ import Foundation
 protocol CharactersViewControllerOutput {
     func viewDidLoad()
 }
+
+
+protocol CharactersPreseterOutput {
+    func fetchCharacters()
+}
