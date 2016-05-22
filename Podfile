@@ -8,5 +8,6 @@ target 'StarWars' do
 end
 
 target 'StarWarsTests' do
-
+  pod 'Quick'
+  pod 'Nimble'
 end

@@ -6,47 +6,47 @@
 //  Copyright © 2016 Pedro Henrique Peralta. All rights reserved.
 //
 
-@testable import StarWars
-import XCTest
+import Quick
+import Nimble
+import StarWars
 
 
-class CharactersViewControllerTests: XCTestCase {
+class CharactersViewControllerTests: QuickSpec {
     
-    var viewController: CharactersViewController!
-    
-    override func setUp() {
-        super.setUp()
-        self.viewController = CharactersViewController()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testShouldNotifyPresenterWhenViewDidLoad() {
-        // Given
-        let charactersViewControllerOutputSpy = CharactersViewControllerOutputSpy()
-        self.viewController.presenter = charactersViewControllerOutputSpy
+    override func spec() {
+        var sut: CharactersViewController!
+        var charactersViewControllerOutputMock: CharactersViewControllerOutputMock!
         
-        // When
-        self.viewController.viewDidLoad()
+        beforeSuite {
+            charactersViewControllerOutputMock = CharactersViewControllerOutputMock()
+            sut = CharactersViewController()
+            sut.presenter = charactersViewControllerOutputMock
+        }
         
-        // Then
-        XCTAssert(charactersViewControllerOutputSpy.notifiedWhenViewLoaded, "Should notify Presenter when the view is loaded")
+        afterSuite {
+            sut = nil
+            charactersViewControllerOutputMock = nil
+        }
+        
+        describe("When view did load") {
+            beforeEach {
+                sut.viewDidLoad()
+            }
+            
+            it("Should notify the Presenter") {
+                expect(charactersViewControllerOutputMock.notifiedWhenViewLoaded).to(beTrue())
+            }
+        }
     }
 }
 
 
 // MARK: Class used to isolate the component dependency
 
-class CharactersViewControllerOutputSpy: CharactersPresentation {
-    
-    // MARK: Method call expectations
+class CharactersViewControllerOutputMock: CharactersPresentation {
     
     var notifiedWhenViewLoaded = false
     
-    
-    // MARK: Spied methods
     
     func viewDidLoad() {
         notifiedWhenViewLoaded = true

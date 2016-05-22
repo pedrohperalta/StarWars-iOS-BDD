@@ -3,49 +3,48 @@
 // Copyright (c) 2016 Pedro Henrique Peralta. All rights reserved.
 //
 
-@testable import StarWars
-import XCTest
-import Foundation
+import Quick
+import Nimble
+import StarWars
 
 
-class CharactersPresenterTests: XCTestCase {
-
-    var presenter: CharactersPresenter!
-
-    override func setUp() {
-        super.setUp()
-        self.presenter = CharactersPresenter()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
-    func testShouldAskInteractorToFetchCharactersWhenPresenterDidLoad() {
-        // Given
-        let charactersPresenterOutputSpy = CharactersPresenterOutputSpy()
-        self.presenter.interactor = charactersPresenterOutputSpy
-
-        // When
-        self.presenter.viewDidLoad()
-
-        // Then
-        XCTAssert(charactersPresenterOutputSpy.fetchCharactersCalled, "Should ask the Interactor to fetch the characters")
+class CharactersPresenterTests: QuickSpec {
+    
+    override func spec() {
+        var sut: CharactersPresenter!
+        var charactersPresenterOutputMock: CharactersPresenterOutputMock!
+        
+        beforeSuite {
+            charactersPresenterOutputMock = CharactersPresenterOutputMock()
+            sut = CharactersPresenter()
+            sut.interactor = charactersPresenterOutputMock
+        }
+        
+        afterSuite {
+            sut = nil
+            charactersPresenterOutputMock = nil
+        }
+        
+        describe("When Presenter did load") {
+            beforeEach {
+                sut.viewDidLoad()
+            }
+            
+            it("Should ask the Interactor to fetch the characters") {
+                expect(charactersPresenterOutputMock.fetchCharactersCalled).to(beTrue())
+            }
+        }
     }
 }
 
 
 // MARK: Class used to isolate the component dependency
 
-class CharactersPresenterOutputSpy: NSObject, CharactersUseCase {
-
-    // MARK: Method call expectations
+class CharactersPresenterOutputMock: NSObject, CharactersUseCase {
 
     var fetchCharactersCalled = false
-
-
-    // MARK: Spied methods
-
+    
+    
     func fetchCharacters() {
         fetchCharactersCalled = true
     }
