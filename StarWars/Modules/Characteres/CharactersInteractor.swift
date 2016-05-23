@@ -14,6 +14,9 @@ import AlamofireObjectMapper
 
 class CharactersInteractor: NSObject, CharactersUseCase {
     
+    var characters: [Character]?
+    
+    
     // MARK: Public
     
     override init() {
@@ -23,9 +26,10 @@ class CharactersInteractor: NSObject, CharactersUseCase {
     // MARK: CharactersPreseterOutput
     
     func fetchCharacters() {
-        Alamofire.request(.GET, Api.peopleURL).responseObject { (response: Response<People, NSError>) in
+        Alamofire.request(.GET, Api.peopleURL).responseObject { (response: Response<Characters, NSError>) in
             if let people = response.result.value {
-                print(people)
+                self.characters = people.results
+                print(people.results)
             }
         }
     }

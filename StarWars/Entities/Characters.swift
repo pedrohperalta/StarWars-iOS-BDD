@@ -7,12 +7,12 @@ import Foundation
 import ObjectMapper
 
 
-class People: Mappable {
+class Characters: Mappable {
 
     var count: Int?
     var next: String?
     var previous: String?
-    var results: [Person]?
+    var results: [Character]?
 
 
     required init?(_ map: Map) {
