@@ -10,4 +10,6 @@ end
 target 'StarWarsTests' do
   pod 'Quick'
   pod 'Nimble'
+  pod 'OHHTTPStubs'
+  pod 'OHHTTPStubs/Swift'
 end

@@ -12,24 +12,23 @@ import Alamofire
 import AlamofireObjectMapper
 
 
-class CharactersInteractor: NSObject, CharactersUseCase {
+class CharactersInteractor: CharactersUseCase {
     
-    var characters: [Character]?
+    // MARK: Attributes
     
-    
-    // MARK: Public
-    
-    override init() {
-    }
+    weak var output: CharactersInteractorOutput!
     
     
-    // MARK: CharactersPreseterOutput
+    // MARK: CharactersUseCase
     
     func fetchCharacters() {
         Alamofire.request(.GET, Api.peopleURL).responseObject { (response: Response<Characters, NSError>) in
-            if let people = response.result.value {
-                self.characters = people.results
-                print(people.results)
+            if response.result.isSuccess, let people = response.result.value {
+                print(people)
+                self.output.onCharactersFetched()
+                
+            } else {
+                self.output.onCharactersFetchError()
             }
         }
     }

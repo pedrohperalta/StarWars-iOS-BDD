@@ -6,11 +6,17 @@
 import Foundation
 
 
-protocol CharactersPresentation {
+protocol CharactersPresentation: class {
     func viewDidLoad()
 }
 
 
-protocol CharactersUseCase {
+protocol CharactersUseCase: class {
     func fetchCharacters()
+}
+
+
+protocol CharactersInteractorOutput: class {
+    func onCharactersFetchError()
+    func onCharactersFetched()
 }

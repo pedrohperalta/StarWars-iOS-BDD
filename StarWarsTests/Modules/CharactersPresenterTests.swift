@@ -3,9 +3,9 @@
 // Copyright (c) 2016 Pedro Henrique Peralta. All rights reserved.
 //
 
+import StarWars
 import Quick
 import Nimble
-import StarWars
 
 
 class CharactersPresenterTests: QuickSpec {
@@ -38,9 +38,7 @@ class CharactersPresenterTests: QuickSpec {
 }
 
 
-// MARK: Class used to isolate the component dependency
-
-class CharactersPresenterOutputMock: NSObject, CharactersUseCase {
+class CharactersPresenterOutputMock: CharactersUseCase {
 
     var fetchCharactersCalled = false
     

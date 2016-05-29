@@ -6,9 +6,9 @@
 //  Copyright © 2016 Pedro Henrique Peralta. All rights reserved.
 //
 
+import StarWars
 import Quick
 import Nimble
-import StarWars
 
 
 class CharactersViewControllerTests: QuickSpec {
@@ -40,8 +40,6 @@ class CharactersViewControllerTests: QuickSpec {
     }
 }
 
-
-// MARK: Class used to isolate the component dependency
 
 class CharactersViewControllerOutputMock: CharactersPresentation {
     

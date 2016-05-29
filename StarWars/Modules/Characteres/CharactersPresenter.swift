@@ -9,22 +9,27 @@
 import UIKit
 
 
-class CharactersPresenter: NSObject, CharactersPresentation {
+class CharactersPresenter: CharactersPresentation, CharactersInteractorOutput {
     
     // MARK: Attributes
     
     var interactor: CharactersUseCase!
     
     
-    // MARK: Public
-    
-    override init() {
-    }
-    
-    
-    // MARK: CharactersViewControllerOutput
+    // MARK: CharactersPresentation
     
     func viewDidLoad() {
         self.interactor.fetchCharacters()
+    }
+    
+    
+    // MARK: CharactersInteractorOutput
+    
+    func onCharactersFetched() {
+        // TODO: Notify View
+    }
+    
+    func onCharactersFetchError() {
+        // TODO: Notify View
     }
 }

@@ -9,12 +9,12 @@ class RootRouter: NSObject {
 
     func showInitialViewController(inWindow window: UIWindow) {
         let charactersInteractor = CharactersInteractor()
-        
         let charactersPresenter = CharactersPresenter()
-        charactersPresenter.interactor = charactersInteractor
-        
         let charactersViewController = CharactersViewController()
+        
         charactersViewController.presenter = charactersPresenter
+        charactersPresenter.interactor = charactersInteractor
+        charactersInteractor.output = charactersPresenter
         
         let rootViewController = UINavigationController()
         rootViewController.viewControllers = [charactersViewController]
