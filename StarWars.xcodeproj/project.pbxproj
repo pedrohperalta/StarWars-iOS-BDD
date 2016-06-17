@@ -159,12 +159,12 @@
 		B25BFD9A1CE168090048724A /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
-				B2FBCE651CE76D9500E438FE /* Assets */,
-				B2FBCE641CE76D5500E438FE /* Modules */,
-				B25BFD9B1CE168090048724A /* AppDelegate.swift */,
-				B25BFDA41CE168090048724A /* LaunchScreen.storyboard */,
 				B25BFDA71CE168090048724A /* Info.plist */,
+				B25BFD9B1CE168090048724A /* AppDelegate.swift */,
+				B2FBCE651CE76D9500E438FE /* Assets */,
 				A9213CB6EADB287F91AC079C /* Entities */,
+				B25BFDA41CE168090048724A /* LaunchScreen.storyboard */,
+				B2FBCE641CE76D5500E438FE /* Modules */,
 				A9213B82C2C7A362C6C3ADDA /* Utils */,
 			);
 			path = StarWars;
@@ -173,8 +173,8 @@
 		B25BFDB21CE168C70048724A /* StarWarsTests */ = {
 			isa = PBXGroup;
 			children = (
-				B2DB66911CE79EF30018FC5E /* Modules */,
 				B25BFDB51CE168C70048724A /* Info.plist */,
+				B2DB66911CE79EF30018FC5E /* Modules */,
 			);
 			path = StarWarsTests;
 			sourceTree = "<group>";

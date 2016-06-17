@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharactersViewController: UIViewController {
+class CharactersViewController: UIViewController, CharactersView {
 
     // MARK: Attributes
 
@@ -20,5 +20,17 @@ class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
+    }
+    
+    
+    // MARK: CharactersView Protocol
+    
+    func showCharactersList() {
+        // TODO
+    }
+    
+    
+    func showEmptyDatasetScreen() {
+        // TODO
     }
 }

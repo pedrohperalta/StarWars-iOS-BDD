@@ -15,19 +15,19 @@ import OHHTTPStubs
 class CharactersInteractorTests: QuickSpec {
     
     var sut: CharactersInteractor!
-    var charactersInteractorOutputMock: CharactersInteractorOutputMock!
+    var charactersPresenterMock: CharactersPresenterMock!
     
     override func spec() {
         
         beforeSuite {
-            self.charactersInteractorOutputMock = CharactersInteractorOutputMock()
+            self.charactersPresenterMock = CharactersPresenterMock()
             self.sut = CharactersInteractor()
-            self.sut.output = self.charactersInteractorOutputMock
+            self.sut.output = self.charactersPresenterMock
         }
         
         afterSuite {
             OHHTTPStubs.removeAllStubs()
-            self.charactersInteractorOutputMock = nil
+            self.charactersPresenterMock = nil
             self.sut = nil
         }
         
@@ -39,11 +39,12 @@ class CharactersInteractorTests: QuickSpec {
                     stub(isHost("swapi.co") && isPath("/api/people")) { _ in
                         return OHHTTPStubsResponse(JSONObject: [:], statusCode: 200, headers: [ "Content-Type": "application/json"])
                     }
+                    
+                    self.sut.fetchCharacters()
                 }
                 
                 it("Should notify the success of the operation") {
-                    self.sut.fetchCharacters()
-                    expect(self.charactersInteractorOutputMock.charactersFetchedWithSuccess).toEventually(beTrue(), timeout: 5)
+                    expect(self.charactersPresenterMock.charactersFetchedWithSuccess).toEventually(beTrue(), timeout: 5)
                 }
             })
             
@@ -53,11 +54,12 @@ class CharactersInteractorTests: QuickSpec {
                     stub(isHost("swapi.co") && isPath("/api/people")) { _ in
                         return OHHTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
                     }
+                    
+                    self.sut.fetchCharacters()
                 }
                 
                 it("Should notify an error has happened") {
-                    self.sut.fetchCharacters()
-                    expect(self.charactersInteractorOutputMock.charactersFetchedWithError).toEventually(beTrue(), timeout: 5)
+                    expect(self.charactersPresenterMock.charactersFetchedWithError).toEventually(beTrue(), timeout: 5)
                 }
             })
         }
@@ -65,7 +67,7 @@ class CharactersInteractorTests: QuickSpec {
 }
 
 
-class CharactersInteractorOutputMock: CharactersInteractorOutput {
+class CharactersPresenterMock: CharactersInteractorOutput {
     
     var charactersFetchedWithSuccess = false
     var charactersFetchedWithError = false

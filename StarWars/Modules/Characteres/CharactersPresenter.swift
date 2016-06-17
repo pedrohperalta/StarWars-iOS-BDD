@@ -13,6 +13,7 @@ class CharactersPresenter: CharactersPresentation, CharactersInteractorOutput {
     
     // MARK: Attributes
     
+    weak var view: CharactersView!
     var interactor: CharactersUseCase!
     
     
@@ -26,10 +27,10 @@ class CharactersPresenter: CharactersPresentation, CharactersInteractorOutput {
     // MARK: CharactersInteractorOutput
     
     func onCharactersFetched() {
-        // TODO: Notify View
+        self.view.showCharactersList()
     }
     
     func onCharactersFetchError() {
-        // TODO: Notify View
+        self.view.showEmptyDatasetScreen()
     }
 }

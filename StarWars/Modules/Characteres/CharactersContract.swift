@@ -6,6 +6,12 @@
 import Foundation
 
 
+protocol CharactersView: class {
+    func showCharactersList()
+    func showEmptyDatasetScreen()
+}
+
+
 protocol CharactersPresentation: class {
     func viewDidLoad()
 }
