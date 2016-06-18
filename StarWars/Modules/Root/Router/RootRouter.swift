@@ -10,7 +10,7 @@ class RootRouter: NSObject, RootWireframe {
 
     // Properties
 
-    var rootViewController: UINavigationController!
+    var charactersViewController: CharactersViewController!
 
 
     // MARK: RootWireframe
@@ -20,14 +20,14 @@ class RootRouter: NSObject, RootWireframe {
 
         window.backgroundColor = UIColor.whiteColor();
         window.makeKeyAndVisible()
-        window.rootViewController = self.rootViewController
+        window.rootViewController = self.charactersViewController
     }
 
 
     // MARK: Private
 
     func assembleCharactersModule() {
-        let charactersViewController = CharactersViewController()
+        self.charactersViewController = CharactersViewController()
         let charactersPresenter = CharactersPresenter()
         let charactersInteractor = CharactersInteractor()
 
@@ -37,8 +37,5 @@ class RootRouter: NSObject, RootWireframe {
         charactersPresenter.interactor = charactersInteractor
 
         charactersInteractor.output = charactersPresenter
-
-        self.rootViewController = UINavigationController()
-        rootViewController.viewControllers = [charactersViewController]
     }
 }
