@@ -27,7 +27,7 @@ class CharactersPresenterTests: QuickSpec {
         }
         
         
-        describe("When Presenter did load") {
+        describe("The Presenter being loaded") {
             beforeEach {
                 self.sut.viewDidLoad()
             }
@@ -38,8 +38,8 @@ class CharactersPresenterTests: QuickSpec {
         }
         
         
-        describe("When Presenter is notified about the end of the characters fetch") {
-            context("List of characters is fetched successfully") {
+        describe("The Presenter being notified about the end of the fetch characters operation") {
+            context("When a valid list of characters is fetched") {
                 beforeEach {
                     self.sut.onCharactersFetched()
                 }
@@ -49,7 +49,7 @@ class CharactersPresenterTests: QuickSpec {
                 }
             }
             
-            context("List of characters is NOT fetched successfully") {
+            context("When the resquest returns a failure response") {
                 beforeEach {
                     self.sut.onCharactersFetchError()
                 }

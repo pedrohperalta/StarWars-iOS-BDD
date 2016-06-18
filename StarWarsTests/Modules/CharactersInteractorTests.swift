@@ -26,9 +26,8 @@ class CharactersInteractorTests: QuickSpec {
             self.sut.output = self.charactersPresenterMock
         }
         
-        
-        describe("Interactor should notify the Presenter when it finishes fetching the characters") {
-            context("List of characters is fetched successfully", {
+        describe("The response for the fetch characters request") {
+            context("When a valid list of characters is fetched", {
                 beforeEach {
                     stub(isHost("swapi.co") && isPath("/api/people")) { _ in
                         let stubPath = OHPathForFile("characters.json", self.dynamicType)!
@@ -43,12 +42,12 @@ class CharactersInteractorTests: QuickSpec {
                     self.sut.fetchCharacters()
                 }
                 
-                it("Should notify the success of the operation") {
+                it("Should notify the Presenter about the success of the operation") {
                     expect(self.charactersPresenterMock.charactersFetchedWithSuccess).toEventually(beTrue(), timeout: 5)
                 }
             })
             
-            context("List of characters is NOT fetched successfully", {
+            context("When the resquest returns a failure response", {
                 beforeEach {
                     stub(isHost("swapi.co") && isPath("/api/people")) { _ in
                         return OHHTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
@@ -57,7 +56,7 @@ class CharactersInteractorTests: QuickSpec {
                     self.sut.fetchCharacters()
                 }
                 
-                it("Should notify an error has happened") {
+                it("Should notify the Presenter about the failure of the operation") {
                     expect(self.charactersPresenterMock.charactersFetchedWithError).toEventually(beTrue(), timeout: 5)
                 }
             })

@@ -26,12 +26,12 @@ class CharactersViewControllerTests: QuickSpec {
         }
         
         
-        describe("When view did load") {
+        describe("The View being loaded") {
             beforeEach {
                 self.sut.viewDidLoad()
             }
             
-            it("Should notify the Presenter") {
+            it("Should notify the Presenter about its life cycle") {
                 expect(self.charactersViewControllerPresenterMock.notifiedWhenViewLoaded).to(beTrue())
             }
         }
