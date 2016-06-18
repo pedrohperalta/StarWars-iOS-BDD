@@ -14,6 +14,7 @@ class CharactersPresenterTests: QuickSpec {
     var charactersInteractorMock: CharactersInteractorMock!
     var charactersViewMock: CharactersViewMock!
     
+    
     override func spec() {
         
         beforeSuite {
@@ -25,10 +26,6 @@ class CharactersPresenterTests: QuickSpec {
             self.sut.view = self.charactersViewMock
         }
         
-        afterSuite {
-            self.sut = nil
-            self.charactersInteractorMock = nil
-        }
         
         describe("When Presenter did load") {
             beforeEach {
@@ -40,10 +37,9 @@ class CharactersPresenterTests: QuickSpec {
             }
         }
         
+        
         describe("When Presenter is notified about the end of the characters fetch") {
-            
             context("List of characters is fetched successfully") {
-                
                 beforeEach {
                     self.sut.onCharactersFetched()
                 }
@@ -54,7 +50,6 @@ class CharactersPresenterTests: QuickSpec {
             }
             
             context("List of characters is NOT fetched successfully") {
-                
                 beforeEach {
                     self.sut.onCharactersFetchError()
                 }
@@ -63,6 +58,12 @@ class CharactersPresenterTests: QuickSpec {
                     expect(self.charactersViewMock.showEmptyDatasetScreenCalled).to(beTrue())
                 }
             }
+        }
+        
+        
+        afterSuite {
+            self.sut = nil
+            self.charactersInteractorMock = nil
         }
     }
 }
@@ -88,6 +89,7 @@ class CharactersViewMock: CharactersView {
     func showCharactersList() {
         self.showCharactersListCalled = true
     }
+    
     
     func showEmptyDatasetScreen() {
         self.showEmptyDatasetScreenCalled = true

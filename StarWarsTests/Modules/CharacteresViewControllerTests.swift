@@ -13,35 +13,39 @@ import Nimble
 
 class CharactersViewControllerTests: QuickSpec {
     
+    var sut: CharactersViewController!
+    var charactersViewControllerPresenterMock: CharactersViewControllerPresenterMock!
+    
+    
     override func spec() {
-        var sut: CharactersViewController!
-        var charactersViewControllerOutputMock: CharactersViewControllerOutputMock!
         
         beforeSuite {
-            charactersViewControllerOutputMock = CharactersViewControllerOutputMock()
-            sut = CharactersViewController()
-            sut.presenter = charactersViewControllerOutputMock
+            self.sut = CharactersViewController()
+            self.charactersViewControllerPresenterMock = CharactersViewControllerPresenterMock()
+            self.sut.presenter = self.charactersViewControllerPresenterMock
         }
         
-        afterSuite {
-            sut = nil
-            charactersViewControllerOutputMock = nil
-        }
         
         describe("When view did load") {
             beforeEach {
-                sut.viewDidLoad()
+                self.sut.viewDidLoad()
             }
             
             it("Should notify the Presenter") {
-                expect(charactersViewControllerOutputMock.notifiedWhenViewLoaded).to(beTrue())
+                expect(self.charactersViewControllerPresenterMock.notifiedWhenViewLoaded).to(beTrue())
             }
+        }
+        
+        
+        afterSuite {
+            self.sut = nil
+            self.charactersViewControllerPresenterMock = nil
         }
     }
 }
 
 
-class CharactersViewControllerOutputMock: CharactersPresentation {
+class CharactersViewControllerPresenterMock: CharactersPresentation {
     
     var notifiedWhenViewLoaded = false
     

@@ -17,6 +17,7 @@ class CharactersInteractorTests: QuickSpec {
     var sut: CharactersInteractor!
     var charactersPresenterMock: CharactersPresenterMock!
     
+    
     override func spec() {
         
         beforeSuite {
@@ -25,16 +26,9 @@ class CharactersInteractorTests: QuickSpec {
             self.sut.output = self.charactersPresenterMock
         }
         
-        afterSuite {
-            OHHTTPStubs.removeAllStubs()
-            self.charactersPresenterMock = nil
-            self.sut = nil
-        }
         
         describe("Interactor should notify the Presenter when it finishes fetching the characters") {
-            
             context("List of characters is fetched successfully", {
-                
                 beforeEach {
                     stub(isHost("swapi.co") && isPath("/api/people")) { _ in
                         let stubPath = OHPathForFile("characters.json", self.dynamicType)!
@@ -55,7 +49,6 @@ class CharactersInteractorTests: QuickSpec {
             })
             
             context("List of characters is NOT fetched successfully", {
-                
                 beforeEach {
                     stub(isHost("swapi.co") && isPath("/api/people")) { _ in
                         return OHHTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
@@ -68,6 +61,13 @@ class CharactersInteractorTests: QuickSpec {
                     expect(self.charactersPresenterMock.charactersFetchedWithError).toEventually(beTrue(), timeout: 5)
                 }
             })
+        }
+        
+        
+        afterSuite {
+            OHHTTPStubs.removeAllStubs()
+            self.charactersPresenterMock = nil
+            self.sut = nil
         }
     }
 }
@@ -82,6 +82,7 @@ class CharactersPresenterMock: CharactersInteractorOutput {
     func onCharactersFetched() {
         charactersFetchedWithSuccess = true
     }
+    
     
     func onCharactersFetchError() {
         charactersFetchedWithError = true
