@@ -41,7 +41,7 @@ class CharactersPresenterTests: QuickSpec {
         describe("The Presenter being notified about the end of the fetch characters operation") {
             context("When a valid list of characters is fetched") {
                 beforeEach {
-                    self.sut.onCharactersFetched()
+                    self.sut.onCharactersFetched([[:]])
                 }
                 
                 it("Should tell the view to show the list of characters fetched") {
@@ -86,7 +86,7 @@ class CharactersViewMock: CharactersView {
     var showEmptyDatasetScreenCalled = false
     
     
-    func showCharactersList() {
+    func showCharactersList(characters: [[String: String]]) {
         self.showCharactersListCalled = true
     }
     

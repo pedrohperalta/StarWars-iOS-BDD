@@ -78,7 +78,7 @@ class CharactersPresenterMock: CharactersInteractorOutput {
     var charactersFetchedWithError = false
     
     
-    func onCharactersFetched() {
+    func onCharactersFetched(charactersList: [[String: String]]) {
         charactersFetchedWithSuccess = true
     }
     

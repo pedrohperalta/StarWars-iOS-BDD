@@ -24,6 +24,7 @@ PODS:
   - RxCocoa (2.5.0):
     - RxSwift (~> 2.5)
   - RxSwift (2.5.0)
+  - SnapKit (0.21.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4.1)
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - Quick
   - RxCocoa
   - RxSwift
+  - SnapKit (~> 0.21.0)
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
@@ -45,5 +47,6 @@ SPEC CHECKSUMS:
   Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+  SnapKit: 2756fe24b706367af224c9c508d2f9166d03354c
 
 COCOAPODS: 0.39.0

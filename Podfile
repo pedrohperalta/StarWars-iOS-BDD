@@ -1,5 +1,6 @@
 platform :ios, '8.0'
 use_frameworks!
+inhibit_all_warnings!
 
 target 'StarWars' do
   pod 'Alamofire', '~> 3.4.1'
@@ -7,6 +8,7 @@ target 'StarWars' do
   pod 'AlamofireObjectMapper', '~> 3.0.0'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'SnapKit', '~> 0.21.0'
 end
 
 target 'StarWarsTests' do

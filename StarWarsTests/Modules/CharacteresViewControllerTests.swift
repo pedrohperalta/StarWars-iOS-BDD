@@ -15,6 +15,7 @@ class CharactersViewControllerTests: QuickSpec {
     
     var sut: CharactersViewController!
     var charactersViewControllerPresenterMock: CharactersViewControllerPresenterMock!
+    var charactersList: [[String: String]]!
     
     
     override func spec() {
@@ -33,6 +34,71 @@ class CharactersViewControllerTests: QuickSpec {
             
             it("Should notify the Presenter about its life cycle") {
                 expect(self.charactersViewControllerPresenterMock.notifiedWhenViewLoaded).to(beTrue())
+            }
+
+            it("Should have an UITableView not null") {
+                expect(self.sut.charactersTableView).toNot(beNil())
+            }
+
+            it("Should have an UITableView as a child view") {
+                expect(self.sut.view.subviews.contains(self.sut.charactersTableView)).to(beTrue())
+            }
+
+            it("Should conform to UITableViewDataSource protocol") {
+                expect(self.sut.conformsToProtocol(UITableViewDataSource)).to(beTrue())
+            }
+
+            it("Should have an UITableView with DataSource") {
+                expect(self.sut.charactersTableView.dataSource).toNot(beNil())
+            }
+
+            it("Should have an UILabel for empty dataset message as a child view") {
+                expect(self.sut.view.subviews.contains(self.sut.emptyDataSetLabel)).to(beTrue())
+            }
+        }
+
+
+        describe("The View being told to show the characters list") {
+            beforeEach {
+                self.charactersList = [[:]]
+                self.sut.showCharactersList(self.charactersList)
+            }
+
+            it("Should have the table view set as visible") {
+                expect(self.sut.charactersTableView.hidden).to(beFalse())
+            }
+
+            it("Should have the empty dataset message label set as invisible") {
+                expect(self.sut.emptyDataSetLabel.hidden).to(beTrue())
+            }
+
+            it("Should have a row for each character in the table view") {
+                let expectedRows = self.charactersList.count
+                expect(self.sut.charactersTableView.numberOfRowsInSection(0)).to(equal(expectedRows))
+            }
+        }
+
+
+        describe("The View being told to show the empty dataset screen") {
+            beforeEach {
+                self.sut.showEmptyDatasetScreen()
+            }
+
+            it("Should shown the proper message in the empty dataset label") {
+                expect(self.sut.emptyDataSetLabel.text).to(equal("No characters to show =("))
+            }
+
+            it("Should have the empty dataset message label set as visible") {
+                expect(self.sut.emptyDataSetLabel.hidden).to(beFalse())
+            }
+
+            it("Should have the table view set as invisible") {
+                expect(self.sut.charactersTableView.hidden).to(beTrue())
+            }
+
+            it("Should have a row for each character in the table view") {
+                let expectedRows = self.sut.charactersList.count
+                expect(self.sut.charactersTableView.numberOfRowsInSection(0)).to(equal(expectedRows))
             }
         }
         

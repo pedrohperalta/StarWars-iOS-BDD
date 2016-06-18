@@ -26,8 +26,8 @@ class CharactersPresenter: CharactersPresentation, CharactersInteractorOutput {
     
     // MARK: CharactersInteractorOutput
     
-    func onCharactersFetched() {
-        self.view.showCharactersList()
+    func onCharactersFetched(charactersList: [[String: String]]) {
+        self.view.showCharactersList(charactersList)
     }
     
     

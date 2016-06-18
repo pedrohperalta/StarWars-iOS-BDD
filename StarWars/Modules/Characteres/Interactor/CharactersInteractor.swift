@@ -46,7 +46,7 @@ class CharactersInteractor: CharactersUseCase {
                         }, onError: { error in
                             self.output.onCharactersFetchError()
                         }, onCompleted: {
-                            self.output.onCharactersFetched()
+                            self.output.onCharactersFetched(self.charactersArray)
                         }, onDisposed: nil)
                     .addDisposableTo(disposeBag)
                 
