@@ -37,7 +37,13 @@ class CharactersInteractorTests: QuickSpec {
                 
                 beforeEach {
                     stub(isHost("swapi.co") && isPath("/api/people")) { _ in
-                        return OHHTTPStubsResponse(JSONObject: [:], statusCode: 200, headers: [ "Content-Type": "application/json"])
+                        let stubPath = OHPathForFile("characters.json", self.dynamicType)!
+                        
+                        return OHHTTPStubsResponse(
+                            fileAtPath: stubPath,
+                            statusCode: 200,
+                            headers: [ "Content-Type": "application/json"]
+                        )
                     }
                     
                     self.sut.fetchCharacters()

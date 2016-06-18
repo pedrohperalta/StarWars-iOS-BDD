@@ -5,6 +5,7 @@
 
 import UIKit
 
+
 class RootRouter: NSObject {
 
     func showInitialViewController(inWindow window: UIWindow) {
@@ -13,7 +14,10 @@ class RootRouter: NSObject {
         let charactersViewController = CharactersViewController()
         
         charactersViewController.presenter = charactersPresenter
+        
+        charactersPresenter.view = charactersViewController
         charactersPresenter.interactor = charactersInteractor
+        
         charactersInteractor.output = charactersPresenter
         
         let rootViewController = UINavigationController()

@@ -23,6 +23,7 @@
 		B20981BB1CF290E60088DCBD /* CharactersInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20981BA1CF290E60088DCBD /* CharactersInteractorTests.swift */; };
 		B22CDBFE1CE83CA000B4EE28 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22CDBFD1CE83CA000B4EE28 /* CharactersPresenter.swift */; };
 		B22CDBFF1CE83CA000B4EE28 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22CDBFD1CE83CA000B4EE28 /* CharactersPresenter.swift */; };
+		B232BC6F1D14DDD9008DF7EA /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = B297DA4F1D13AF0A00AD3727 /* characters.json */; };
 		B25BFD9C1CE168090048724A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25BFD9B1CE168090048724A /* AppDelegate.swift */; };
 		B25BFDA61CE168090048724A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B25BFDA41CE168090048724A /* LaunchScreen.storyboard */; };
 		B29103CA1CE8C53E00D1AEEA /* CharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29103C91CE8C53E00D1AEEA /* CharactersInteractor.swift */; };
@@ -67,6 +68,7 @@
 		B25BFDB11CE168C60048724A /* StarWarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25BFDB51CE168C70048724A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B29103C91CE8C53E00D1AEEA /* CharactersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersInteractor.swift; sourceTree = "<group>"; };
+		B297DA4F1D13AF0A00AD3727 /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
 		B2DB66931CE79FB70018FC5E /* CharacteresViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteresViewControllerTests.swift; sourceTree = "<group>"; };
 		DEE96B7AB8A85099D89EC3B1 /* Pods_StarWars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -136,6 +138,14 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		B232BC6E1D14DD8D008DF7EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B297DA4F1D13AF0A00AD3727 /* characters.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B25BFD8F1CE168090048724A = {
 			isa = PBXGroup;
 			children = (
@@ -161,9 +171,9 @@
 			children = (
 				B25BFDA71CE168090048724A /* Info.plist */,
 				B25BFD9B1CE168090048724A /* AppDelegate.swift */,
+				B25BFDA41CE168090048724A /* LaunchScreen.storyboard */,
 				B2FBCE651CE76D9500E438FE /* Assets */,
 				A9213CB6EADB287F91AC079C /* Entities */,
-				B25BFDA41CE168090048724A /* LaunchScreen.storyboard */,
 				B2FBCE641CE76D5500E438FE /* Modules */,
 				A9213B82C2C7A362C6C3ADDA /* Utils */,
 			);
@@ -175,6 +185,7 @@
 			children = (
 				B25BFDB51CE168C70048724A /* Info.plist */,
 				B2DB66911CE79EF30018FC5E /* Modules */,
+				B232BC6E1D14DD8D008DF7EA /* Resources */,
 			);
 			path = StarWarsTests;
 			sourceTree = "<group>";
@@ -321,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B232BC6F1D14DDD9008DF7EA /* characters.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

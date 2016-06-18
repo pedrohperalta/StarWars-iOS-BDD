@@ -10,6 +10,8 @@ import Foundation
 import ObjectMapper
 import Alamofire
 import AlamofireObjectMapper
+import RxSwift
+import RxCocoa
 
 
 class CharactersInteractor: CharactersUseCase {
@@ -17,15 +19,36 @@ class CharactersInteractor: CharactersUseCase {
     // MARK: Attributes
     
     weak var output: CharactersInteractorOutput!
+    var charactersArray: [[String: String]] = []
     
     
     // MARK: CharactersUseCase
     
     func fetchCharacters() {
-        Alamofire.request(.GET, Api.peopleURL).responseObject { (response: Response<Characters, NSError>) in
-            if response.result.isSuccess, let people = response.result.value {
-                print(people)
-                self.output.onCharactersFetched()
+        let disposeBag = DisposeBag()
+        
+        Alamofire.request(.GET, Api.peopleURL).validate().responseObject { (response: Response<Characters, NSError>) in
+            if response.result.isSuccess {
+                response.result.value?.results?
+                    .toObservable()
+                    .observeOn(MainScheduler.instance)
+                    .map { character -> [String: String] in
+                        return [
+                            "name": character.name!,
+                            "height": character.height!,
+                            "mass": character.mass!,
+                            "gender": character.gender!,
+                            "homeworld": character.homeworld!
+                        ]
+                    }
+                    .subscribe(onNext: { characterDictionary in
+                            self.charactersArray.append(characterDictionary)
+                        }, onError: { error in
+                            self.output.onCharactersFetchError()
+                        }, onCompleted: {
+                            self.output.onCharactersFetched()
+                        }, onDisposed: nil)
+                    .addDisposableTo(disposeBag)
                 
             } else {
                 self.output.onCharactersFetchError()
