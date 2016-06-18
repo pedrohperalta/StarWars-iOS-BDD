@@ -13,10 +13,12 @@
 		A92130F66677AE2855EF190A /* CharactersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213C53C627363632387684 /* CharactersInteractor.swift */; };
 		A9213109358CD09DAF8BFB3E /* CharactersInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213687D0788C88D6EB8A65 /* CharactersInteractorTests.swift */; };
 		A92131287205908FAD0C3FED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213AC1E36DD01D1572EB56 /* Constants.swift */; };
+		A92131A31605B60DEB8AEFC7 /* RootProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92135772AD9F85EE91BD7EC /* RootProtocols.swift */; };
 		A92132AC92507F961686D6BE /* CharacteresViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92136F1AA0347893DABBEE2 /* CharacteresViewControllerTests.swift */; };
 		A92135CAF447705D00AA77FF /* CharactersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213E9BD5AF2954A5125EA5 /* CharactersProtocols.swift */; };
 		A92135FE9A82AB9C5A213DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9213E506095CB0B943381F0 /* Assets.xcassets */; };
 		A9213709846E1FDCA1569982 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213289BB5727E25B12CAC5 /* RootRouter.swift */; };
+		A921370E0561E3A7D571BCA7 /* RootProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92135772AD9F85EE91BD7EC /* RootProtocols.swift */; };
 		A921375A064885FA62401F16 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92136F1FF3B1897E60B8A82 /* Characters.swift */; };
 		A921379151ED92701678C66B /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213C2233C6FFB5DCD6C737 /* CharactersViewController.swift */; };
 		A921386DEEF25C0397775B4A /* CharactersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9213E9BD5AF2954A5125EA5 /* CharactersProtocols.swift */; };
@@ -52,6 +54,7 @@
 		6CB3694CFF922F94156AAA96 /* Pods-StarWarsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StarWarsTests/Pods-StarWarsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		94D483B32F578A09A839D96A /* Pods-StarWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars.release.xcconfig"; path = "Pods/Target Support Files/Pods-StarWars/Pods-StarWars.release.xcconfig"; sourceTree = "<group>"; };
 		A9213289BB5727E25B12CAC5 /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		A92135772AD9F85EE91BD7EC /* RootProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootProtocols.swift; sourceTree = "<group>"; };
 		A9213687D0788C88D6EB8A65 /* CharactersInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersInteractorTests.swift; sourceTree = "<group>"; };
 		A92136F1AA0347893DABBEE2 /* CharacteresViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteresViewControllerTests.swift; sourceTree = "<group>"; };
 		A92136F1FF3B1897E60B8A82 /* Characters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				A921323D8303D848B2CEDCC6 /* Router */,
+				A921396E1688884B62FCE966 /* Contract */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -151,6 +155,14 @@
 				A9213C53C627363632387684 /* CharactersInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A921396E1688884B62FCE966 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				A92135772AD9F85EE91BD7EC /* RootProtocols.swift */,
+			);
+			path = Contract;
 			sourceTree = "<group>";
 		};
 		A92139B03C5B3258F7191AE3 /* Images */ = {
@@ -517,6 +529,7 @@
 				A9213A0968BE58DD2086C85B /* CharactersInteractor.swift in Sources */,
 				A92135CAF447705D00AA77FF /* CharactersProtocols.swift in Sources */,
 				A9213D6F091EC8E2209696F7 /* RootRouter.swift in Sources */,
+				A921370E0561E3A7D571BCA7 /* RootProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +549,7 @@
 				A92132AC92507F961686D6BE /* CharacteresViewControllerTests.swift in Sources */,
 				A9213109358CD09DAF8BFB3E /* CharactersInteractorTests.swift in Sources */,
 				A9213FB55D8F9259E3FA7D95 /* CharactersPresenterTests.swift in Sources */,
+				A92131A31605B60DEB8AEFC7 /* RootProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

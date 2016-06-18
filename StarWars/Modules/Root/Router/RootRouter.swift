@@ -6,25 +6,39 @@
 import UIKit
 
 
-class RootRouter: NSObject {
+class RootRouter: NSObject, RootWireframe {
 
-    func showInitialViewController(inWindow window: UIWindow) {
-        let charactersInteractor = CharactersInteractor()
-        let charactersPresenter = CharactersPresenter()
-        let charactersViewController = CharactersViewController()
-        
-        charactersViewController.presenter = charactersPresenter
-        
-        charactersPresenter.view = charactersViewController
-        charactersPresenter.interactor = charactersInteractor
-        
-        charactersInteractor.output = charactersPresenter
-        
-        let rootViewController = UINavigationController()
-        rootViewController.viewControllers = [charactersViewController]
+    // Properties
+
+    var rootViewController: UINavigationController!
+
+
+    // MARK: RootWireframe
+
+    func presentCharactersScreen(inWindow window: UIWindow) {
+        self.assembleCharactersModule()
 
         window.backgroundColor = UIColor.whiteColor();
         window.makeKeyAndVisible()
-        window.rootViewController = rootViewController
+        window.rootViewController = self.rootViewController
+    }
+
+
+    // MARK: Private
+
+    func assembleCharactersModule() {
+        let charactersViewController = CharactersViewController()
+        let charactersPresenter = CharactersPresenter()
+        let charactersInteractor = CharactersInteractor()
+
+        charactersViewController.presenter = charactersPresenter
+
+        charactersPresenter.view = charactersViewController
+        charactersPresenter.interactor = charactersInteractor
+
+        charactersInteractor.output = charactersPresenter
+
+        self.rootViewController = UINavigationController()
+        rootViewController.viewControllers = [charactersViewController]
     }
 }

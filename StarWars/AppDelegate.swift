@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
 
         let rootRouter = RootRouter()
-        rootRouter.showInitialViewController(inWindow: self.window!)
+        rootRouter.presentCharactersScreen(inWindow: self.window!)
 
         return true
     }
