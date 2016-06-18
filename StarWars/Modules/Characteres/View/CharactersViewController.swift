@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CharactersViewController: UIViewController, CharactersView {
 
     // MARK: Attributes

@@ -30,6 +30,7 @@ class CharactersPresenter: CharactersPresentation, CharactersInteractorOutput {
         self.view.showCharactersList()
     }
     
+    
     func onCharactersFetchError() {
         self.view.showEmptyDatasetScreen()
     }

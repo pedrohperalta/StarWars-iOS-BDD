@@ -6,7 +6,10 @@
 import Foundation
 
 
-enum Api {
-    static let baseURL = "http://swapi.co/api"
-    static let peopleURL = baseURL + "/people"
+struct Constants {
+    
+    enum Api {
+        static let baseURL = "http://swapi.co/api"
+        static let peopleURL = baseURL + "/people"
+    }
 }

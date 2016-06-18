@@ -27,7 +27,7 @@ class CharactersInteractor: CharactersUseCase {
     func fetchCharacters() {
         let disposeBag = DisposeBag()
         
-        Alamofire.request(.GET, Api.peopleURL).validate().responseObject { (response: Response<Characters, NSError>) in
+        Alamofire.request(.GET, Constants.Api.peopleURL).validate().responseObject { (response: Response<Characters, NSError>) in
             if response.result.isSuccess {
                 response.result.value?.results?
                     .toObservable()
