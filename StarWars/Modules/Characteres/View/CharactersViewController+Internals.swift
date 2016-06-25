@@ -19,7 +19,7 @@ extension CharactersViewController {
     
     func setupConstraints() {
         self.charactersTableView.snp_makeConstraints { make -> Void in
-            make.edges.equalTo(self.view)
+            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(25, 0, 0, 0))
         }
         
         self.emptyDataSetLabel.snp_makeConstraints { make -> Void in

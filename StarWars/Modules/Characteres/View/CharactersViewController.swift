@@ -15,7 +15,7 @@ class CharactersViewController: UIViewController {
     // MARK: Attributes
 
     var presenter: CharactersPresentation!
-    var charactersList = [] {
+    var charactersList: [[String: String]] = [] {
         didSet {
             self.charactersTableView.reloadData()
         }
@@ -44,7 +44,7 @@ class CharactersViewController: UIViewController {
 
 
     lazy var charactersTableView: UITableView = {
-        let tableView = UITableView(frame: self.view.frame)
+        let tableView = UITableView()
         tableView.dataSource = self
         return tableView
     }()
