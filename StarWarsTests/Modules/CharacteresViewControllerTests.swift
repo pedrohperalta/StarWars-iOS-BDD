@@ -6,7 +6,7 @@
 //  Copyright © 2016 Pedro Henrique Peralta. All rights reserved.
 //
 
-import StarWars
+@testable import StarWars
 import Quick
 import Nimble
 
@@ -71,10 +71,20 @@ class CharactersViewControllerTests: QuickSpec {
             it("Should have the empty dataset message label set as invisible") {
                 expect(self.sut.emptyDataSetLabel.hidden).to(beTrue())
             }
+            
+            it("Should set the characters' list for the data source") {
+                expect(self.sut.charactersList).to(equal(self.charactersList))
+            }
 
             it("Should have a row for each character in the table view") {
                 let expectedRows = self.charactersList.count
+                print("Expected rows: \(expectedRows)")
                 expect(self.sut.charactersTableView.numberOfRowsInSection(0)).to(equal(expectedRows))
+            }
+            
+            it("Should return a valid cell when it's dequeued from the table view") {
+                let cell = self.sut.charactersTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+                expect(cell).notTo(beNil())
             }
         }
 
@@ -103,6 +113,18 @@ class CharactersViewControllerTests: QuickSpec {
         }
         
         
+        describe("The characters list being set") {
+            beforeEach {
+                self.sut.charactersTableView = CharactersTableViewMock()
+                self.sut.charactersList = []
+            }
+            
+            it("Should reload the characters' table view data") {
+                expect((self.sut.charactersTableView as! CharactersTableViewMock).reloadDataCalled).to(beTrue())
+            }
+        }
+        
+        
         afterSuite {
             self.sut = nil
             self.charactersViewControllerPresenterMock = nil
@@ -118,5 +140,17 @@ class CharactersViewControllerPresenterMock: CharactersPresentation {
     
     func viewDidLoad() {
         notifiedWhenViewLoaded = true
+    }
+}
+
+
+class CharactersTableViewMock: UITableView {
+    
+    var reloadDataCalled = false
+    
+    
+    override func reloadData() {
+        self.reloadDataCalled = true
+        super.reloadData()
     }
 }

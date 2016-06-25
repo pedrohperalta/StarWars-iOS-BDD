@@ -6,7 +6,7 @@
 //  Copyright © 2016 Pedro Henrique Peralta. All rights reserved.
 //
 
-import StarWars
+@testable import StarWars
 import Quick
 import Nimble
 import OHHTTPStubs
