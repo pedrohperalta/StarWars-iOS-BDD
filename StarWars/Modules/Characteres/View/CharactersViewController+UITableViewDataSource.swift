@@ -21,14 +21,13 @@ extension CharactersViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIidentifier)
         if cell == nil {
-            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellIidentifier)
+            cell = UITableViewCell(style: .Default, reuseIdentifier: cellIidentifier)
         }
         
         let character = self.charactersList[indexPath.row]
         
         cell!.selectionStyle = .None
-        cell!.textLabel?.text = character["name"]
-        cell!.detailTextLabel?.text = "\(character["height"]!)cm, \(character["mass"]!)kg"
+        cell!.textLabel?.text = character["name"] ?? ""
         
         return cell!
     }
