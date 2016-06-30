@@ -105,11 +105,6 @@ class CharactersViewControllerTests: QuickSpec {
             it("Should have the table view set as invisible") {
                 expect(self.sut.charactersTableView.hidden).to(beTrue())
             }
-
-            it("Should have a row for each character in the table view") {
-                let expectedRows = self.sut.charactersList.count
-                expect(self.sut.charactersTableView.numberOfRowsInSection(0)).to(equal(expectedRows))
-            }
         }
         
         
