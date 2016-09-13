@@ -23,6 +23,6 @@ protocol CharactersUseCase: class {
 
 
 protocol CharactersInteractorOutput: class {
-    func onCharactersFetched(charactersList: [[String: String]])
-    func onCharactersFetchError()
+    func didFetchCharactersWithSuccess(charactersList: [[String: String]])
+    func didFailToFetchCharacters()
 }

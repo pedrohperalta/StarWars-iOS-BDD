@@ -26,12 +26,12 @@ class CharactersPresenter: CharactersPresentation, CharactersInteractorOutput {
     
     // MARK: CharactersInteractorOutput
     
-    func onCharactersFetched(charactersList: [[String: String]]) {
+    func didFetchCharactersWithSuccess(charactersList: [[String: String]]) {
         self.view.showCharactersList(charactersList)
     }
     
     
-    func onCharactersFetchError() {
+    func didFailToFetchCharacters() {
         self.view.showEmptyDatasetScreen()
     }
 }

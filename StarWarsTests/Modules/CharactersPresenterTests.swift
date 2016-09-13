@@ -41,7 +41,7 @@ class CharactersPresenterTests: QuickSpec {
         describe("The Presenter being notified about the end of the fetch characters operation") {
             context("When a valid list of characters is fetched") {
                 beforeEach {
-                    self.sut.onCharactersFetched([[:]])
+                    self.sut.didFetchCharactersWithSuccess([[:]])
                 }
                 
                 it("Should tell the view to show the list of characters fetched") {
@@ -51,7 +51,7 @@ class CharactersPresenterTests: QuickSpec {
             
             context("When the resquest returns a failure response") {
                 beforeEach {
-                    self.sut.onCharactersFetchError()
+                    self.sut.didFailToFetchCharacters()
                 }
                 
                 it("Should tell the view to show the empty dataset screen") {
