@@ -27,34 +27,43 @@ class CharactersInteractor: CharactersUseCase {
     func fetchCharacters() {
         let disposeBag = DisposeBag()
         
-        Alamofire.request(.GET, Constants.Api.peopleURL)
+        Alamofire.request(Constants.Api.peopleURL, method: .get)
             .validate()
-            .responseObject { (response: Response<Characters, NSError>) in
+            .responseObject { (response: DataResponse<Characters>) in
                 if response.result.isSuccess {
-                    response.result.value?.results?
-                        .toObservable()
+                    Observable.just(response.result.value?.results)
                         .observeOn(MainScheduler.instance)
-                        .map { character -> [String: String] in
-                            return [
-                                "name": character.name!,
-                                "height": character.height!,
-                                "mass": character.mass!,
-                                "gender": character.gender!,
-                                "homeworld": character.homeworld!
-                            ]
+                        .map { characters -> Array<[String: String]> in
+                            
+                            var charactersArray = Array<[String: String]>()
+                            for character in characters! {
+                                charactersArray.append([
+                                    "name": character.name ?? "",
+                                    "height": character.height ?? "",
+                                    "mass": character.mass ?? "",
+                                    "gender": character.gender ?? "",
+                                    "homeworld": character.homeworld ?? ""
+                                    ])
+                            }
+                            
+                            return charactersArray
                         }
-                        .subscribe(onNext: { characterDictionary in
-                            self.charactersArray.append(characterDictionary)
-                            }, onError: { error in
+                        .subscribe(
+                            onNext: { charactersArray in
+                                self.charactersArray.append(contentsOf: charactersArray)
+                            },
+                            onError: { error in
                                 self.output.didFailToFetchCharacters()
-                            }, onCompleted: {
+                            },
+                            onCompleted: {
                                 self.output.didFetchCharactersWithSuccess(self.charactersArray)
-                            }, onDisposed: nil)
+                            },
+                            onDisposed: nil)
                         .addDisposableTo(disposeBag)
                     
                 } else {
                     self.output.didFailToFetchCharacters()
                 }
-        }
+            }
     }
 }

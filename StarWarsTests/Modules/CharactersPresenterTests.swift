@@ -86,7 +86,7 @@ class CharactersViewMock: CharactersView {
     var showEmptyDatasetScreenCalled = false
     
     
-    func showCharactersList(characters: [[String: String]]) {
+    func showCharactersList(_ characters: [[String: String]]) {
         self.showCharactersListCalled = true
     }
     

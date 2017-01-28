@@ -11,15 +11,15 @@ import UIKit
 
 extension CharactersViewController: CharactersView {
     
-    func showCharactersList(charactersList: [[String: String]]) {
+    func showCharactersList(_ charactersList: [[String: String]]) {
         self.charactersList = charactersList
-        self.charactersTableView.hidden = false
-        self.emptyDataSetLabel.hidden = true
+        self.charactersTableView.isHidden = false
+        self.emptyDataSetLabel.isHidden = true
     }
     
     
     func showEmptyDatasetScreen() {
-        self.charactersTableView.hidden = true
-        self.emptyDataSetLabel.hidden = false
+        self.charactersTableView.isHidden = true
+        self.emptyDataSetLabel.isHidden = false
     }
 }

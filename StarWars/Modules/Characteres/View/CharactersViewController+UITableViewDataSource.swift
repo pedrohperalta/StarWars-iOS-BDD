@@ -13,20 +13,20 @@ let cellIidentifier = "CellIdentifier"
 
 extension CharactersViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.charactersList.count
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIidentifier)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIidentifier)
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: cellIidentifier)
+            cell = UITableViewCell(style: .default, reuseIdentifier: cellIidentifier)
         }
         
         let character = self.charactersList[indexPath.row]
         
-        cell!.selectionStyle = .None
+        cell!.selectionStyle = .none
         cell!.textLabel?.text = character["name"] ?? ""
         
         return cell!

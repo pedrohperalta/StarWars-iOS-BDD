@@ -18,14 +18,14 @@ extension CharactersViewController {
     
     
     func setupConstraints() {
-        self.charactersTableView.snp_makeConstraints { make -> Void in
+        self.charactersTableView.snp.makeConstraints { make -> Void in
             make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(25, 0, 0, 0))
         }
         
-        self.emptyDataSetLabel.snp_makeConstraints { make -> Void in
-            make.left.greaterThanOrEqualTo(self.view.snp_left).offset(30)
-            make.right.greaterThanOrEqualTo(self.view.snp_right).offset(-30)
-            make.center.equalTo(self.view.snp_center)
+        self.emptyDataSetLabel.snp.makeConstraints { make -> Void in
+            make.left.greaterThanOrEqualTo(self.view.snp.left).offset(30)
+            make.right.greaterThanOrEqualTo(self.view.snp.right).offset(-30)
+            make.center.equalTo(self.view.snp.center)
         }
     }
 }
