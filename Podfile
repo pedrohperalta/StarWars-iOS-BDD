@@ -3,17 +3,20 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'StarWars' do
-  pod 'Alamofire', '~> 3.4.1'
-  pod 'ObjectMapper', '~> 1.1'
-  pod 'AlamofireObjectMapper', '~> 3.0.0'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'SnapKit', '~> 0.21.0'
+  pod 'Alamofire', '~> 4.0'
+  pod 'ObjectMapper', '~> 2.2'
+  pod 'AlamofireObjectMapper', '~> 4.0'
+  pod 'RxSwift', '~> 3.0.0-beta.1'
+  pod 'RxCocoa', '~> 3.0.0-beta.1'
+  pod 'SnapKit', '~> 3.0.0'
 end
 
 target 'StarWarsTests' do
   pod 'Quick'
   pod 'Nimble'
-  pod 'OHHTTPStubs', '~> 5.1.0'
-  pod 'OHHTTPStubs/Swift', '~> 5.1.0'
+  pod 'OHHTTPStubs'
+  pod 'OHHTTPStubs/Swift'
+  
+  # Duplicated for successful linking
+  pod 'RxCocoa', '~> 3.0.0-beta.1'
 end

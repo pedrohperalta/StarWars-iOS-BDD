@@ -15,7 +15,7 @@ class Characters: Mappable {
     var results: [Character]?
 
 
-    required init?(_ map: Map) {
+    required init?(map: Map) {
     }
 
     func mapping(map: Map) {

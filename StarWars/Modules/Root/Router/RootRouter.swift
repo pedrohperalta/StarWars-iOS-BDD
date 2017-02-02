@@ -18,7 +18,7 @@ class RootRouter: NSObject, RootWireframe {
     func presentCharactersScreen(inWindow window: UIWindow) {
         self.assembleCharactersModule()
 
-        window.backgroundColor = UIColor.whiteColor();
+        window.backgroundColor = UIColor.white;
         window.makeKeyAndVisible()
         window.rootViewController = self.charactersViewController
     }

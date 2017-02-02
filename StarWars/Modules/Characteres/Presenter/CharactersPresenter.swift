@@ -26,7 +26,7 @@ class CharactersPresenter: CharactersPresentation, CharactersInteractorOutput {
     
     // MARK: CharactersInteractorOutput
     
-    func didFetchCharactersWithSuccess(charactersList: [[String: String]]) {
+    func didFetchCharactersWithSuccess(_ charactersList: [[String: String]]) {
         self.view.showCharactersList(charactersList)
     }
     

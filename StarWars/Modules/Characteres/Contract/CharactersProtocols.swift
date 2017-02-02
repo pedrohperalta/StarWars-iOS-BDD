@@ -7,7 +7,7 @@ import Foundation
 
 
 protocol CharactersView: class {
-    func showCharactersList(charactersList: [[String: String]])
+    func showCharactersList(_ charactersList: [[String: String]])
     func showEmptyDatasetScreen()
 }
 
@@ -23,6 +23,6 @@ protocol CharactersUseCase: class {
 
 
 protocol CharactersInteractorOutput: class {
-    func didFetchCharactersWithSuccess(charactersList: [[String: String]])
+    func didFetchCharactersWithSuccess(_ charactersList: [[String: String]])
     func didFailToFetchCharacters()
 }

@@ -45,7 +45,7 @@ class CharactersViewControllerTests: QuickSpec {
             }
 
             it("Should conform to UITableViewDataSource protocol") {
-                expect(self.sut.conformsToProtocol(UITableViewDataSource)).to(beTrue())
+                expect(self.sut.conforms(to: UITableViewDataSource.self)).to(beTrue())
             }
 
             it("Should have an UITableView with DataSource") {
@@ -65,25 +65,26 @@ class CharactersViewControllerTests: QuickSpec {
             }
 
             it("Should have the table view set as visible") {
-                expect(self.sut.charactersTableView.hidden).to(beFalse())
+                expect(self.sut.charactersTableView.isHidden).to(beFalse())
             }
 
             it("Should have the empty dataset message label set as invisible") {
-                expect(self.sut.emptyDataSetLabel.hidden).to(beTrue())
+                expect(self.sut.emptyDataSetLabel.isHidden).to(beTrue())
             }
             
             it("Should set the characters' list for the data source") {
-                expect(self.sut.charactersList).to(equal(self.charactersList))
+                for (index, character) in self.sut.charactersList.enumerated() {
+                    expect(character).to(equal(self.charactersList[index]))
+                }
             }
-
+            
             it("Should have a row for each character in the table view") {
                 let expectedRows = self.charactersList.count
-                print("Expected rows: \(expectedRows)")
-                expect(self.sut.charactersTableView.numberOfRowsInSection(0)).to(equal(expectedRows))
+                expect(self.sut.charactersTableView.numberOfRows(inSection: 0)).to(equal(expectedRows))
             }
             
             it("Should return a valid cell when it's dequeued from the table view") {
-                let cell = self.sut.charactersTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+                let cell = self.sut.charactersTableView.cellForRow(at: IndexPath(row: 0, section: 0))
                 expect(cell).notTo(beNil())
             }
         }
@@ -99,11 +100,11 @@ class CharactersViewControllerTests: QuickSpec {
             }
 
             it("Should have the empty dataset message label set as visible") {
-                expect(self.sut.emptyDataSetLabel.hidden).to(beFalse())
+                expect(self.sut.emptyDataSetLabel.isHidden).to(beFalse())
             }
 
             it("Should have the table view set as invisible") {
-                expect(self.sut.charactersTableView.hidden).to(beTrue())
+                expect(self.sut.charactersTableView.isHidden).to(beTrue())
             }
         }
         
