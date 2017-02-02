@@ -37,7 +37,7 @@ class CharactersViewController: UIViewController {
     lazy var emptyDataSetLabel: UILabel = {
         let label = UILabel()
         label.text = "No characters to show =("
-        label.textAlignment = .Center
+        label.textAlignment = .center
         label.numberOfLines = 0
         return label
     }()

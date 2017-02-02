@@ -29,8 +29,8 @@ class CharactersInteractorTests: QuickSpec {
         describe("The response for the fetch characters request") {
             context("When a valid list of characters is fetched", {
                 beforeEach {
-                    stub(isHost("swapi.co") && isPath("/api/people")) { _ in
-                        let stubPath = OHPathForFile("characters.json", self.dynamicType)!
+                    stub(condition: isHost("swapi.co") && isPath("/api/people")) { _ in
+                        let stubPath = OHPathForFile("characters.json", type(of: self))!
                         
                         return OHHTTPStubsResponse(
                             fileAtPath: stubPath,
@@ -49,7 +49,7 @@ class CharactersInteractorTests: QuickSpec {
             
             context("When the resquest returns a failure response", {
                 beforeEach {
-                    stub(isHost("swapi.co") && isPath("/api/people")) { _ in
+                    stub(condition: isHost("swapi.co") && isPath("/api/people")) { _ in
                         return OHHTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
                     }
                     
@@ -78,12 +78,12 @@ class CharactersPresenterMock: CharactersInteractorOutput {
     var charactersFetchedWithError = false
     
     
-    func onCharactersFetched(charactersList: [[String: String]]) {
+    func didFetchCharactersWithSuccess(_ charactersList: [[String: String]]) {
         charactersFetchedWithSuccess = true
     }
     
     
-    func onCharactersFetchError() {
+    func didFailToFetchCharacters() {
         charactersFetchedWithError = true
     }
 }
